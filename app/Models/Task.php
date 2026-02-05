@@ -9,9 +9,12 @@ class Task extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'category_id']; // Permite guardar datos
+    // Campos que permitimos rellenar
+    protected $fillable = ['title', 'description', 'is_done', 'category_id'];
 
-    public function category() {
-        return $this->belongsTo(Category::class); // Una tarea pertenece a una categoría
+    // Relación: Una tarea pertenece a una categoría
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

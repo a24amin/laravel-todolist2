@@ -9,9 +9,12 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name']; // Permite guardar nombres
+    // Campos que permitimos rellenar
+    protected $fillable = ['name', 'color'];
 
-    public function tasks() {
-        return $this->hasMany(Task::class); // Una categoría tiene muchas tareas
+    // Relación: Una categoría tiene muchas tareas
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
 }
